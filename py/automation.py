@@ -60,10 +60,9 @@ def click_tool(tools_list):
             # gui.moveTo(1, 1)
             # gui.move(100, 100) 
             gui.moveTo(int(u_t), int(v_t))
-
             gui.click(int(u_t), int(v_t))
 
-            # print(int(u_t), int(v_t))
+            print(int(u_t), int(v_t))
             # print(gui.position())
 
 
@@ -126,10 +125,26 @@ def draw_line(tools_list, pos_list):
         gui.moveTo(int(uu), int(vv))
         gui.click()
 
-        print(uu, vv)
-        print(gui.position())
+        # print(uu, vv)
+        # print(gui.position())
 
     gui.press(keys = "Enter")
+
+
+def draw_lines(tools_list, pos_list):
+
+    yn_tool = input("Tool Position ok? (y/n) :")
+    if yn_tool == "y" or "Y":
+
+        for i in range(len(pos_list)):
+
+            if i == 0:
+                draw_line(tools_list, pos_list[i])
+
+            else:
+                yn_c = input("Continue? (y/n) :")
+                if yn_c == "y" or "Y":
+                    draw_line(tools_list, pos_list[i])
 
 
 def run():
@@ -137,10 +152,13 @@ def run():
     print("Tajima Automation Tool (ver0)\n\n")
 
     ### Input Date
-    tools_path = input("TOOLS : ")
+    # tools_path = input("TOOLS : ")
     # tools_path = r"C:\Users\yoshioca\Documents\Tajima_Sai_Automation\data\tools.txt"
-    pos_path = input("POS : ")
+    tools_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\tools.txt"
+    
+    # pos_path = input("POS : ")
     # pos_path = r"C:\Users\yoshioca\Documents\Tajima_Sai_Automation\data\pos_1.txt"
+    pos_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\pos_1.txt"
 
     
 
@@ -154,6 +172,8 @@ def run():
     click_tool(tools_list)
     # click_color(tools_list, 7)
     # draw_line(tools_list, pos_list[1])
+
+    draw_lines(tools_list, pos_list)
 
 
 
