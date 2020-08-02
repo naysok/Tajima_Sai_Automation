@@ -71,10 +71,7 @@ def click_tool(tools_list):
             # gui.moveTo(magic_number[0], magic_number[1])
             # gui.click()
 
-
             print("Select Pen Tool")
-
-
 
 
 def click_color(tools_list, color_id):
@@ -97,7 +94,6 @@ def click_color(tools_list, color_id):
             print("Set Color")
 
 
-
 def draw_line(tools_list, pos_list):
 
     ### Operate Pos List
@@ -108,7 +104,7 @@ def draw_line(tools_list, pos_list):
 
     ### Select Color
     click_color(tools_list, c_pos[0])
-    print(c_pos[0])
+    print("Color : {}".format(c_pos[0]))
 
 
     ### Draw Line
@@ -134,7 +130,7 @@ def draw_line(tools_list, pos_list):
 def draw_lines(tools_list, pos_list):
 
     yn_tool = input("Tool Position ok? (y/n) :")
-    if yn_tool == "y" or "Y":
+    if yn_tool == "y" or yn_tool == "Y":
 
         for i in range(len(pos_list)):
 
@@ -142,9 +138,17 @@ def draw_lines(tools_list, pos_list):
                 draw_line(tools_list, pos_list[i])
 
             else:
+
                 yn_c = input("Continue? (y/n) :")
-                if yn_c == "y" or "Y":
+                # yn_c = "y"
+
+                if yn_c == "y" or yn_c == "Y":
                     draw_line(tools_list, pos_list[i])
+                else:
+                    exit()
+
+    else:
+        exit()
 
 
 def run():
@@ -152,13 +156,13 @@ def run():
     print("Tajima Automation Tool (ver0)\n\n")
 
     ### Input Date
-    # tools_path = input("TOOLS : ")
+    tools_path = input("TOOLS : ")
     # tools_path = r"C:\Users\yoshioca\Documents\Tajima_Sai_Automation\data\tools.txt"
-    tools_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\tools.txt"
+    # tools_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\tools.txt"
     
-    # pos_path = input("POS : ")
+    pos_path = input("POS : ")
     # pos_path = r"C:\Users\yoshioca\Documents\Tajima_Sai_Automation\data\pos_1.txt"
-    pos_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\pos_1.txt"
+    # pos_path = r"C:\Users\ysoky\Documents\Tajima_Sai_Automation\data\pos_1.txt"
 
     
 
